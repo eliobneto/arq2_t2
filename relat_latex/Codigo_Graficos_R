@@ -1,0 +1,238 @@
+t1 <- read.table(text = "programa, preditor, acerto
+mvt, LocalBP, 93.442
+mvt, TournamentBP, 93.375
+mvt, BiModeBP, 92.33
+mvt, LTAGE, 93.859
+jpeg_c, LocalBP, 95.049
+jpeg_c, TournamentBP, 93.326
+jpeg_c, BiModeBP, 92.796
+jpeg_c, LTAGE, 94.447
+trie, LocalBP, 95.367
+trie, TournamentBP, 94.7
+trie, BiModeBP, 93.869
+trie, LTAGE, 94.523
+queens, LocalBP, 91.538
+queens, TournamentBP, 91.064
+queens, BiModeBP, 90.706
+queens, LTAGE, 92.037",
+header = TRUE,
+sep = ","
+)
+colors = c("chartreuse3", "red3", "cyan3", "darkgoldenrod1")
+png(filename = "Taxa_Acertos.png",
+width = 10,
+height = 10,
+units = "in",
+res = 600)
+barchart(
+data = t1,
+acerto ~ programa,
+groups = preditor,
+main = "Taxa de acertos de cada algoritmo de previsão de desvio",
+xlab = list(
+label = "Programas",
+cex = 1.5),
+ylab = list(
+label = "Porcentagem de acertos",
+cex = 1.5),
+scales = list(
+x = list(cex = 1.2),
+y = list(cex = 1.2)),
+auto.key = list(
+space = list(space = "right"),
+title = "Algoritmos preditores:",
+border=T,
+cex.title = 1.0),
+par.settings = list(superpose.polygon = list(col = colors)))
+dev.off()
+
+t2 <- read.table(text = "programa, preditor, acerto
+mvt, LocalBP, 74.866
+mvt, TournamentBP, 80.287
+mvt, BiModeBP, 41.855
+mvt, LTAGE, 71.848
+jpeg_c, LocalBP, 89.386
+jpeg_c, TournamentBP, 87.783
+jpeg_c, BiModeBP, 85.495
+jpeg_c, LTAGE, 85.015
+trie, LocalBP, 97.244
+trie, TournamentBP, 84.241
+trie, BiModeBP, 83.241
+trie, LTAGE, 88.664
+queens, LocalBP, 99.999
+queens, TournamentBP, 99.244
+queens, BiModeBP, 99.732
+queens, LTAGE, 99.998",
+header = TRUE,
+sep = ","
+)
+colors = c("chartreuse3", "red3", "cyan3", "darkgoldenrod1")
+png(filename = "Taxa_Acertos_RAS.png",
+width = 10,
+height = 10,
+units = "in",
+res = 600)
+barchart(
+data = t2,
+programa ~ acerto,
+groups = preditor,
+main = "Taxa de acertos das previsões de RAS",
+xlab = list(
+label = "Porcentagem de acertos",
+cex = 1.2),
+ylab = list(
+label = "Programas",
+cex = 1.5),
+scales = list(
+x = list(cex = 1.2),
+y = list(cex = 1.2)),
+auto.key = list(
+space = list(space = "bottom"),
+columns = 4,
+border=T,
+title = "Algoritmos preditores:",
+cex.title = 1.0),
+par.settings = list(superpose.polygon = list(col = colors)))
+dev.off()
+
+t3 <- read.table(text = "programa, preditor, saltos
+mvt, LocalBP, 1963
+mvt, TournamentBP, 4364
+mvt, BiModeBP, 1734
+mvt, LTAGE, 2178
+jpeg_c, LocalBP, 25893
+jpeg_c, TournamentBP, 109601
+jpeg_c, BiModeBP, 124430
+jpeg_c, LTAGE, 75693
+trie, LocalBP, 9187
+trie, TournamentBP, 15468
+trie, BiModeBP, 10459
+trie, LTAGE, 15480
+queens, LocalBP, 1794308
+queens, TournamentBP, 5097791
+queens, BiModeBP, 5662694
+queens, LTAGE, 1501347",
+header = TRUE,
+sep = ","
+)
+colors = c("chartreuse3", "red3", "cyan3", "darkgoldenrod1")
+png(filename = "Taxa_Miss_Indirect.png",
+width = 10,
+height = 10,
+units = "in",
+res = 600)
+barchart(
+data = t3,
+programa ~ saltos,
+groups = preditor,
+main = "Taxa de erros em saltos indiretos",
+xlab = list(
+label = "Número de erros",
+cex = 1.2),
+ylab = list(
+label = "Programas",
+cex = 1.5),
+scales = list(
+x = list(cex = 1.2),
+y = list(cex = 1.2)),
+auto.key = list(
+space = list(space = "bottom"),
+columns = 4,
+border=T,
+title = "Algoritmos preditores:",
+cex.title = 1.0),
+par.settings = list(superpose.polygon = list(col = colors)))
+dev.off()
+
+t4 <- read.table(text = "programa, preditor, tempo
+mvt, LocalBP, 0.000411
+mvt, TournamentBP, 0.000425
+mvt, BiModeBP, 0.000435
+mvt, LTAGE, 0.000413
+jpeg_c, LocalBP, 0.005990
+jpeg_c, TournamentBP, 0.006420
+jpeg_c, BiModeBP, 0.006594
+jpeg_c, LTAGE, 0.006088
+trie, LocalBP, 0.000717
+trie, TournamentBP, 0.000745
+trie, BiModeBP, 0.000740
+trie, LTAGE, 0.000721
+queens, LocalBP, 0.411163
+queens, TournamentBP, 0.389767
+queens, BiModeBP, 0.394150
+queens, LTAGE, 0.335423",
+header = TRUE,
+sep = ","
+)
+colors = c("chartreuse3", "red3", "cyan3", "darkgoldenrod1")
+png(filename = "Tempo_Execucao.png",
+width = 10,
+height = 10,
+units = "in",
+res = 600)
+barchart(
+data = t4,
+tempo ~ programa,
+groups = preditor,
+main = "Tempo de simulação dos programas",
+xlab = list(
+label = "Programas",
+cex = 1.2),
+ylab = list(
+label = "Tempo de simulação",
+cex = 1.5),
+scales = list(
+x = list(cex = 1.2),
+y = list(cex = 1.2)),
+auto.key = list(
+space = list(space = "right"),
+border=T,
+title = "Algoritmos preditores:",
+cex.title = 1.0),
+par.settings = list(superpose.polygon = list(col = colors)))
+dev.off()
+
+t5 <- read.table(text = "programa, preditor, saltos
+mvt, LocalBP, 1963
+mvt, TournamentBP, 4364
+mvt, BiModeBP, 1734
+mvt, LTAGE, 2178
+jpeg_c, LocalBP, 25893
+jpeg_c, TournamentBP, 109601
+jpeg_c, BiModeBP, 124430
+jpeg_c, LTAGE, 75693
+trie, LocalBP, 9187
+trie, TournamentBP, 15468
+trie, BiModeBP, 10459
+trie, LTAGE, 15480",
+header = TRUE,
+sep = ","
+)
+colors = c("chartreuse3", "red3", "cyan3", "darkgoldenrod1")
+png(filename = "Taxa_Miss_No_Queens.png",
+width = 10,
+height = 10,
+units = "in",
+res = 600)
+barchart(
+data = t5,
+programa ~ saltos,
+groups = preditor,
+main = "Taxa de erros em saltos indiretos sem o programa queens",
+xlab = list(
+label = "Número de erros",
+cex = 1.2),
+ylab = list(
+label = "Programas",
+cex = 1.5),
+scales = list(
+x = list(cex = 1.2),
+y = list(cex = 1.2)),
+auto.key = list(
+space = list(space = "bottom"),
+columns = 4,
+border=T,
+title = "Algoritmos preditores:",
+cex.title = 1.0),
+par.settings = list(superpose.polygon = list(col = colors)))
+dev.off()
